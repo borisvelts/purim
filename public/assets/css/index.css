@@ -1,0 +1,20 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    font-family: "Rubik","Arial";
+}
+
+body h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+}
+
+nav .active{
+    font-weight: bold;
+    color: black !important;
+}
