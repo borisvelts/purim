@@ -7,7 +7,7 @@ app.use(express.static(__dirname + "/public"));
 
 var indexRoutes = require('./routes/index');
 
-app.get('/testing',(req,res) => {
+app.get('/testing', (req, res) => {
     res.send('from app.js')
 })
 
