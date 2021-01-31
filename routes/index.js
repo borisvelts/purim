@@ -10,4 +10,8 @@ router.get('/nastia', (req, res) => {
     return res.render('nastia')
 })
 
+router.get('/alisa', (req, res) => {
+    return res.render('alisa')
+})
+
 module.exports = router;
