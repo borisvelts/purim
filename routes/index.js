@@ -16,6 +16,9 @@ router.get('/ifat', (req, res) => {
 router.get('/shani', (req, res) => {
     return res.render('shani/shani')
 })
+router.get('/end', (req, res) => {
+    return res.render('shani/end')
+})
 
 router.get('/eden', (req, res) => {
     return res.render('eden')
