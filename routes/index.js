@@ -19,6 +19,9 @@ router.get('/eden', (req, res) => {
 router.get('/shani', (req, res) => {
     return res.render('shani/shani')
 })
+router.get('/end', (req, res) => {
+    return res.render('shani/end')
+})
 
 
 module.exports = router;
