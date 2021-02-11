@@ -69,9 +69,10 @@ router.get('/shani',async (req, res) => {
 
     // b. put that in the ejs file in order to see your list:
    
-    return res.render('shani/shani')
-
+router.get('/karin', (req, res) => {
+    return res.render('karin')
 })
+
 router.get('/end', (req, res) => {
     return res.render('shani/end')
 })
@@ -119,41 +120,40 @@ router.get('/sync', (req, res) => res.render('sync'))
 
 module.exports = router;
 
-router.get('/eden', async (req, res) => {
+// router.get('/eden', async (req, res) => {
  
-     // create
-    Dog.create({name: "dogOne", age: 6})
-    Dog.create({name: "dogTwo", age: 2, owner: "someone"}) //<- Added owner
+//      // create
+//     Dog.create({name: "dogOne", age: 6})
+//     Dog.create({name: "dogTwo", age: 2, owner: "someone"}) //<- Added owner
 
-    //  var edensdog = await dog.find()
-    //  res.locals.edendog = edensdog
-    //  console.log(edensdog)
-
-
-    //find one + catch error
-    //  Cat.findOne({"name": "dogOne"}, function (err, doc) {
-    //      if(err != null) { //error
-    //          return res.status(500).send('error fetching dog')
-    //      }
-    //      var dog = doc
-    //      console.log(dog)
-    //      return res.render('index')
-    //  })
+//     //  var edensdog = await dog.find()
+//     //  res.locals.edendog = edensdog
+//     //  console.log(edensdog)
 
 
-    // print to screen: a.find all and initialize res.locals.cats
-    //  var edensDog = await dog.find()
-    //  res.locals.dog = edensDog
+//     //find one + catch error
+//     //  Cat.findOne({"name": "dogOne"}, function (err, doc) {
+//     //      if(err != null) { //error
+//     //          return res.status(500).send('error fetching dog')
+//     //      }
+//     //      var dog = doc
+//     //      console.log(dog)
+//     //      return res.render('index')
+//     //  })
 
-    // b. put that in the ejs file in order to see your list:
-    // <div class="row d-flex justify-content-around">
-    //     <% for(var i=0;i<cats.length;i++){ %>
-    //                 <p>
-    //                     <%=cats[i].name%>
-    //                 </p>
-    //         <%}%>
-    // </div>
-    return res.render('index')
 
-}
-)
+//     // print to screen: a.find all and initialize res.locals.cats
+//     //  var edensDog = await dog.find()
+//     //  res.locals.dog = edensDog
+
+//     // b. put that in the ejs file in order to see your list:
+//     // <div class="row d-flex justify-content-around">
+//     //     <% for(var i=0;i<cats.length;i++){ %>
+//     //                 <p>
+//     //                     <%=cats[i].name%>
+//     //                 </p>
+//     //         <%}%>
+//     // </div>
+//     return res.render('index')
+
+// })
