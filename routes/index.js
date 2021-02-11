@@ -20,6 +20,12 @@ router.post('/upload', async (req, res) => {
     return res.redirect('/?firstName=' + child.firstName)
 })
 
+router.get('/' , async (req,res)=>{
+    // Child.create(name:"test"})
+    var Children = await Child.find();
+    console.log(children)
+    return res.render('index')
+})
 router.get('/nastia', (req, res) => {
     return res.render('nastia')
 })
