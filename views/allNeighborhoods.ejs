@@ -1,0 +1,15 @@
+<section id="neighborhoods" class="container my-5">
+    <h3>השכונות שלנו</h3>
+    <div class="container">
+        <div class="row d-flex justify-content-around">
+                <% for(var i=0;i<neighborhoods.length;i++){ %>
+                    <div class="row">
+                        <a href="#" class="my-3 mx-3 col-2 neighborCard d-flex flex-column">
+                          <b>  <%=neighborhoods[i].name%> </b>
+                        </a>
+                    </div>
+                     <%}%>
+        </div>
+        
+    </div>
+</section>
