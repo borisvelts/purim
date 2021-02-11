@@ -39,7 +39,8 @@ nav .active{
  
 }
 .ms-4{
-    text-align:left;
+    text-align:right;
+    border-radius: 50%;
 }
 .nav-link{
     text-align: right"
