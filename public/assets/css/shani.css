@@ -53,3 +53,8 @@ nav .active{
 .end_image{
     margin-right:20px;
 }
+
+h2{
+    font-size: large;
+    color:black;
+}
