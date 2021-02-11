@@ -10,42 +10,14 @@
         integrity="sha384-mUkCBeyHPdg0tqB6JDd+65Gpw5h/l8DKcCTV2D2UpaMMFd7Jo8A+mDAosaWgFBPl" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <link href="assets/css/shani.css" rel="stylesheet" >
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
+<%- include('header') %>
+
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand mx-4" href="#">Purim 2021</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item mx-3">
-                        <a class="nav-link active" aria-current="page" href="#">דף הבית</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">בתי הספר</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">תחפושות</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/shani">shani's page</a>
-                    </li>
-                </ul>
-                <img src="assets/images/rishon.svg" height="35px" alt="">
-                <img src="assets/images/kehila.png" class="ms-4" height="40px" alt="">
-                <a href="https://www.alicecode.org" target="_blank" rel="noopener noreferrer">
-                    <img src="assets/images/alicecode.jpg" class="ms-4" height="40px" alt="">
-                </a>
-                <img class="mx-4" src="assets/images/startup.svg" height="35px" alt="">
-            </div>
-        </div>
-    </nav>
+    
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -68,6 +40,7 @@
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
         <h1>hi</h1>
+        <%- include('footer') %>
 
 </body>
 

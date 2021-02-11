@@ -5,6 +5,7 @@ var Child = require('../models/child')
 var School = require('../models/school')
 var Picture = require('../models/picture')
 var Cat = require('../models/cat');
+var Alien = require('../models/alien')
 const Dog = require("../models/dog");
 
 router.get('/', async (req, res) => {
@@ -35,13 +36,41 @@ router.get('/alisa', (req, res) => {
     return res.render('alisa/alisa')
 })
 router.get('/ifat', (req, res) => {
+
     return res.render('ifat')
 })
 router.get('/eden', (req, res) => {
     return res.render('eden')
 })
-router.get('/shani', (req, res) => {
+router.get('/shani',async (req, res) => {
+    //create
+    // Alien.create({name: "Bob", planet: "Mars"})
+    // Alien.create({name: "Marios", planet:"Noga", numOfEyes: 50}) //<- Added owner
+
+    // find all
+     //var ShaniAliens = await Alien.find()
+     //res.locals.ShanisAliens = ifatsCats
+     //console.log(ShaniAliens)
+
+    //find one + catch error
+    // await Alien.findOne({"name": "Bobo"}, function (err, doc) {
+    //      if(err != null) { //error
+    //         return res.status(500).send('error fetching cat')
+    //     }
+    //     var Alien = doc
+    //     console.log(Alien)
+    //     return res.render('index')
+    // })
+
+
+    // print to screen: a.find all and initialize res.locals.cats
+    //var ShaniAliens = await Alien.find()
+    //res.locals.aliens = ShaniAliens
+
+    // b. put that in the ejs file in order to see your list:
+   
     return res.render('shani/shani')
+
 })
 router.get('/end', (req, res) => {
     return res.render('shani/end')
@@ -80,6 +109,7 @@ router.get('/AliceCode', async (req, res) => {
     //                 </p>
     //         <%}%>
     // </div>
+    // 
 
     return res.render('index')
 })
