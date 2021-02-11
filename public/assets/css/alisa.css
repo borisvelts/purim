@@ -1,0 +1,82 @@
+.card-body{
+    background-color: #E5E5E5;
+    border-radius: 10px;
+  }
+.container1{
+    background-color: #FFE5E5;
+    padding-bottom: 2rem;
+}
+.container2{
+    background-color: #FFE5E5;
+}
+#img4{
+  margin: auto;
+  margin: 0rem 10rem 1rem 12rem;
+}
+#img3{
+  margin: auto;
+  margin: 2rem 17rem 0rem 19rem;
+}
+#title{
+    color: black;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: calc(1.3rem + .6vw);
+}
+.dot1 {
+    height: 70px;
+    width: 70px;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Varela Round', sans-serif;
+    margin: 5px 5px 5px 5px;
+    background-color: rgb(212, 156, 0);
+    border-radius: 50%;
+    position: absolute
+  }
+  .dot2 {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Varela Round', sans-serif;
+    margin: 5px 5px 5px 5px;
+    background-color: rgb(126, 126, 126);
+    border-radius: 50%;
+    position: absolute
+  }
+  .dot3 {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Varela Round', sans-serif;
+    margin: 5px 5px 5px 5px;
+    background-color: rgb(143, 90, 31);
+    border-radius: 50%;
+    position: absolute
+  }
+ .card {
+     position: relative;
+     border-radius: 10px;
+     background-color: #E5E5E5;
+  }
+  .card-img-top1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 18rem;
+    width: 18rem;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .card-img-top {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 10rem;
+    width: 10rem;
+    object-fit: cover;
+    border-radius: 10px;
+  }
