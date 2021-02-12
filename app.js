@@ -28,6 +28,6 @@ app.use(function (req, res, next) {
 
 app.use("/", indexRoutes);
 
-app.listen(process.env.PORT || 5000, function () {
+app.listen(process.env.PORT || 3001, function () {
     console.log("Server has started");
 })

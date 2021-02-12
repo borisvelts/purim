@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     res.locals.children = children;
 
     res.locals.schools = await School.find();
-    return res.render('index')
+    return res.render('indexBoris')
 })
 
 router.post('/upload', async (req, res) => {
@@ -34,6 +34,10 @@ router.get('/shani', (req, res) => {
 })
 router.get('/end', (req, res) => {
     return res.render('shani/end')
+})
+
+router.get('/AliceCode', (req, res) => {
+    return res.render('index')
 })
 
 
