@@ -3,18 +3,186 @@ html, body {
     width: 100%;
     margin: 0;
     position: relative;
-    font-family: "Rubik","Arial";
+    font-family: "Rubik", "Arial";
+    /* overflow-x: hidden; */
 }
 
 body h1 {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: bold;
+    color: white;
 }
 
-nav .active{
+nav .active {
     font-weight: bold;
     color: black !important;
+}
+
+.carousel img {
+    height: 100%;
+    object-fit: cover;
+}
+
+/* header {
+    width: 70%;
+    height: 80%;
+    margin: 0 auto;
+} */
+
+header .container {
+    height: 85%;
+    position: relative;
+}
+
+header img {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 1px 3px 5px 0 rgba(0, 0, 0, .19);
+}
+
+header h2 {
+    font-weight: bold;
+    font-size: 36px;
+    color: rgba(55, 55, 55, 1);
+}
+
+header p {
+    color: gray;
+}
+
+.round {
+    position: absolute;
+    top: 30%;
+    right: 30%;
+    background-color: black;
+    border-radius: 500px;
+    height: 50px;
+    width: 50px;
+}
+
+nav form input {
+    border-radius: 20px !important;
+}
+
+/** CIRCLES **/
+
+.circle {
+    height: 100px;
+    width: 100px;
+    background-color: #FFE5E5;
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.first {
+    top: 10%;
+    left: 10%;
+}
+
+.second {
+    bottom: 10%;
+    right: 10%;
+}
+
+.third {
+    bottom: 10%;
+    left: 20%;
+}
+
+.fourth {
+    top: 15%;
+    right: 20%;
+}
+
+.fifth {
+    top: 15%;
+    left: 45%;
+}
+
+/** LEADING **/
+
+#leading {
+    background-color: #FFE5E5;
+    min-height: 50%;
+    width: 100%;
+    padding: 40px 0;
+}
+
+#leading h3 {
+    text-align: center;
+}
+
+.leader {
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 1px 3px 5px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+}
+
+.leader img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.leader .bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #E5E5E5;
+}
+
+.subLeader {
+    width: 12%;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 1px 3px 5px 0 rgba(0, 0, 0, 0.19);
+    padding: 0 !important;
+    position: relative;
+}
+
+.subLeader img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.subLeader .bottom {
+    height: 20%;
+    width: 100%;
+    background-color: #E5E5E5;
+    position: absolute;
+    bottom: 0;
+}
+
+/** PARTICIPANTS **/
+
+#participants {
+    min-height: 50%;
+    overflow-x: hidden;
+}
+
+#participants h3 {
+    text-align: center;
+}
+
+#participants .col-2:nth-child(even) {
+    background-color: #FFE5E5 !important;
+}
+
+#participants .col-2:nth-child(odd) {
+    background-color: #0090FF;
+    /* margin: 0 10px; */
+}
+
+#participants .card{
+    background-color: transparent;
+    margin: 0 10px;
 }
