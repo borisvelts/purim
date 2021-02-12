@@ -1,7 +1,16 @@
 var express = require("express"),
     bodyParser = require("body-parser"),
+    mongoose = require('mongoose'),
     app = express();
 
+require('dotenv').config()
+
+mongoose.connect('mongodb+srv://alicecode:Gy6SfAmbH0HdKH7L@cluster1.rizsk.mongodb.net/purim?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connection.once('open', () => console.log('connection is open')).on('error', (error) => console.log(error));
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 
@@ -19,6 +28,6 @@ app.use(function (req, res, next) {
 
 app.use("/", indexRoutes);
 
-app.listen(process.env.PORT || 3001, function () {
+app.listen(process.env.PORT || 5000, function () {
     console.log("Server has started");
 })
