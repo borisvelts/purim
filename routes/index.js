@@ -40,9 +40,14 @@ router.get('/ifat', (req, res) => {
 router.get('/eden', (req, res) => {
     return res.render('eden')
 })
+router.get('/karin', (req, res) => {
+    return res.render('karin')
+})
+
 router.get('/shani', (req, res) => {
     return res.render('shani/shani')
 })
+
 router.get('/end', (req, res) => {
     return res.render('shani/end')
 })
