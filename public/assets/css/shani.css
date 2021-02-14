@@ -1,18 +1,18 @@
-html, body {
-    height: 100%;
+/* html, body {
+     height: 100%;
     width: 100%;
     margin: 0;
     position: relative;
-    font-family: "Rubik","Arial";
-}
+    font-family: "Rubik","Arial"; 
+} */
 
-body h1 {
-    position: absolute;
+/* body h1 {
+     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-weight: bold;
-}
+    font-weight: bold; 
+} */
 
 nav .active{
     font-weight: bold;
@@ -23,21 +23,20 @@ nav .active{
 }
 #title1{
     text-align: left;
-    font-size: 2opx;
+    font-size: 20px;
+    color:rgb(54, 63, 63);
 }
 #text{
     text-align: right;
-    position: relative;
-  float: left;
-  padding: 9px 10px;
-  margin-top: 8px;
-  margin-right: 15px;
-  margin-bottom: 8px;
-  background-color: transparent;
+  padding: 3px 6px;
+  margin-top: 4px;
+  margin-right: 10px;
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
-  font-size: 10px;
+  font-size: 15px; 
+  color:rgb(54, 61, 61);
+ 
 }
 .ms-4{
     text-align:left;
@@ -47,4 +46,20 @@ nav .active{
 }
 .nav-link{
     text-align: right"
+}
+body{
+    background-color: rgb(179, 185, 185);
+}
+.end_image{
+    margin-right:20px;
+}
+.nav-link active{
+    margin-left: opx;
+    margin-right: 0px;
+    float: right;
+
+}
+.nav-link{
+    float: right;
+
 }
