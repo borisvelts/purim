@@ -42,9 +42,49 @@ router.get('/ifat', (req, res) => {
 router.get('/eden', (req, res) => {
     return res.render('eden')
 })
+<<<<<<< HEAD
 router.get('/shani', (req, res) => {
     return res.render('shani/shani')
 })
+=======
+<<<<<<< HEAD
+router.get('/shani', (req, res) => {
+    return res.render('shani/shani')
+})
+=======
+router.get('/shani',async (req, res) => {
+    //create
+    // Alien.create({name: "Bob", planet: "Mars"})
+    // Alien.create({name: "Marios", planet:"Noga", numOfEyes: 50}) //<- Added owner
+
+    // find all
+     //var ShaniAliens = await Alien.find()
+     //res.locals.ShanisAliens = ifatsCats
+     //console.log(ShaniAliens)
+
+    //find one + catch error
+    // await Alien.findOne({"name": "Bobo"}, function (err, doc) {
+    //      if(err != null) { //error
+    //         return res.status(500).send('error fetching cat')
+    //     }
+    //     var Alien = doc
+    //     console.log(Alien)
+    //     return res.render('index')
+    // })
+
+
+    // print to screen: a.find all and initialize res.locals.cats
+    //var ShaniAliens = await Alien.find()
+    //res.locals.aliens = ShaniAliens
+
+    // b. put that in the ejs file in order to see your list:
+   
+router.get('/karin', (req, res) => {
+    return res.render('karin')
+})
+
+>>>>>>> 9d6e8feb8711d7e4a614777d935213741f66bdd3
+>>>>>>> f095ed595e4dc6c5784e703a86c6fbfad83c04c6
 router.get('/end', (req, res) => {
     return res.render('shani/end')
 })
@@ -95,18 +135,16 @@ router.get('/sync', (req, res) => res.render('sync'))
 
 module.exports = router;
 
+<<<<<<< HEAD
+router.get('/eden2', async (req, res) => {
+=======
+<<<<<<< HEAD
 router.get('/eden2', async (req, res) => {
  
      // create
     Dog.create({name: "dogOne", age: 6})
     Dog.create({name: "dogTwo", age: 2, owner: "someone"}) //<- Added owner
      
-    router.get('/karin2', async (req, res) => {
- 
-        // create
-       Dog.create({name: "fishOne", age: 3})
-       Dog.create({name: "fishTwo", age: 1, owner: "someone"}) //<- Added owner
-        
     //  var edensdog = await dog.find()
     //  res.locals.edendog = edensdog
     //  console.log(edensdog)
@@ -135,6 +173,57 @@ router.get('/eden2', async (req, res) => {
     //                 </p>
     //         <%}%>
     // // </div>
+     return res.render('eden')
+
+}
+)
+=======
+// router.get('/eden', async (req, res) => {
+>>>>>>> f095ed595e4dc6c5784e703a86c6fbfad83c04c6
+ 
+     // create
+    Dog.create({name: "dogOne", age: 6})
+    Dog.create({name: "dogTwo", age: 2, owner: "someone"}) //<- Added owner
+     
+    router.get('/karin2', async (req, res) => {
+ 
+        // create
+       Dog.create({name: "fishOne", age: 3})
+       Dog.create({name: "fishTwo", age: 1, owner: "someone"}) //<- Added owner
+        
+    //  var edensdog = await dog.find()
+    //  res.locals.edendog = edensdog
+    //  console.log(edensdog)
+
+<<<<<<< HEAD
+
+    //find one + catch error
+    //  Cat.findOne({"name": "dogOne"}, function (err, doc) {
+    //      if(err != null) { //error
+    //          return res.status(500).send('error fetching dog')
+    //      }
+    //      var dog = doc
+    //      console.log(dog)
+    //      return res.render('index')
+    //  })
+
+
+    // print to screen: a.find all and initialize res.locals.cats
+    //  var edensDog = await dog.find()
+    //  res.locals.dog = edensDog
+
+    // b. put that in the ejs file in order to see your list:
+    // <div class="row d-flex justify-content-around">
+    //     <% for(var i=0;i<cats.length;i++){ %>
+    //                 <p>
+    //                     <%=cats[i].name%>
+    //                 </p>
+    //         <%}%>
+    // // </div>
      return res.render('karin');
     })
 })
+=======
+// })
+>>>>>>> 9d6e8feb8711d7e4a614777d935213741f66bdd3
+>>>>>>> f095ed595e4dc6c5784e703a86c6fbfad83c04c6
