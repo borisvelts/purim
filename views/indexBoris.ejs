@@ -110,16 +110,7 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-around">
-                <% for(var i=0;i<children.length;i++){ %>
-                    <article class="subLeader">
-                        <img src="<%=children[i].picture.secure_url%>" alt="">
-                        <div class="bottom">
-                            <p>
-                                <%=children[i].firstName%>
-                            </p>
-                        </div>
-                    </article>
-                    <%}%>
+
             </div>
         </div>
     </section>
@@ -149,7 +140,7 @@
                             <div class="row">
                                 <div class="col-3">
                                     <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">שם פרטי</label>
+                                        <label for="exampleFormControlInput1" class="form-label">שם החיה</label>
                                         <input type="text" class="form-control" name="firstName" placeholder="שם פרטי">
                                     </div>
                                 </div>
@@ -161,42 +152,28 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">באיזה כיתם אתם?</label>
+                                        <label for="exampleFormControlInput1" class="form-label">מאומץ?</label>
                                         <select class="form-select" name="grade">
-                                            <option value="א">א</option>
-                                            <option value="ב">ב</option>
-                                            <option value="ג">ג</option>
-                                            <option value="ד">ד</option>
-                                            <option value="ה">ה</option>
-                                            <option value="ו">ו</option>
-                                            <option value="ז">ז</option>
-                                            <option value="ח">ח</option>
-                                            <option value="ט">ט</option>
-                                            <option value="י">י</option>
-                                            <option value='י"א'>י"א</option>
-                                            <option value='י"ב'>י"ב</option>
+                                            <option value="לא">לא</option>
+                                            <option value="כן">כן</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">בני כמה אתם</label>
-                                        <input type="text" class="form-control" name="age" placeholder="בני כמה אתם?">
+                                        <label for="exampleFormControlInput1" class="form-label">סוג החיה</label>
+                                        <input type="text" class="form-control" name="age" placeholder="סוג חיה">
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <!--  <div class="col-4">
                                     <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">מאיזה בית ספר
                                             אתם?</label>
                                         <select class="form-select" name="school">
-                                            <% for(let school of schools){ %>
-                                                <option value="<%=school.name%>">
-                                                    <%=school.name%>
-                                                </option>
-                                                <% } %>
+             
                                         </select>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-8">
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label">בחרו תמונה</label>
