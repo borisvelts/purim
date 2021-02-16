@@ -7,7 +7,9 @@ var Picture = require('../models/picture')
 var Cat = require('../models/cat');
 const Dog = require("../models/dog");
 
-router.get('/', async (req, res) => {
+
+
+router.get('/hi', async (req, res) => {
     var children = await Child.find({status:"APPROVED"}).populate('picture')
     res.locals.children = children;
 
@@ -21,12 +23,12 @@ router.post('/upload', async (req, res) => {
     return res.redirect('/?firstName=' + child.firstName)
 })
 
-router.get('/' , async (req,res)=>{
-    // Child.create(name:"test"})
-    var Children = await Child.find();
-    console.log(children)
-    return res.render('index')
-})
+// router.get('/' , async (req,res)=>{
+//     // Child.create(name:"test"})
+//     var Children = await Child.find();
+//     console.log(children)
+//     return res.render('index')
+// })
 router.get('/nastia', (req, res) => {
     return res.render('nastia')
 })
@@ -40,14 +42,9 @@ router.get('/ifat', (req, res) => {
 router.get('/eden', (req, res) => {
     return res.render('eden')
 })
-router.get('/karin', (req, res) => {
-    return res.render('karin')
-})
-
 router.get('/shani', (req, res) => {
     return res.render('shani/shani')
 })
-
 router.get('/end', (req, res) => {
     return res.render('shani/end')
 })
@@ -94,12 +91,12 @@ router.get('/sync', (req, res) => res.render('sync'))
 
 module.exports = router;
 
-router.get('/eden', async (req, res) => {
+router.get('/eden2', async (req, res) => {
  
      // create
     Dog.create({name: "dogOne", age: 6})
     Dog.create({name: "dogTwo", age: 2, owner: "someone"}) //<- Added owner
-
+     
     //  var edensdog = await dog.find()
     //  res.locals.edendog = edensdog
     //  console.log(edensdog)
@@ -127,8 +124,8 @@ router.get('/eden', async (req, res) => {
     //                     <%=cats[i].name%>
     //                 </p>
     //         <%}%>
-    // </div>
-    return res.render('index')
+    // // </div>
+     return res.render('eden')
 
 }
 )
