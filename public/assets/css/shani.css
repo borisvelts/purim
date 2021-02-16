@@ -53,13 +53,3 @@ body{
 .end_image{
     margin-right:20px;
 }
-.nav-link active{
-    margin-left: opx;
-    margin-right: 0px;
-    float: right;
-
-}
-.nav-link{
-    float: right;
-
-}
