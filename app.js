@@ -5,8 +5,10 @@ var express = require("express"),
 
 require('dotenv').config()
 
-mongoose.connect('mongodb+srv://alicecode:Gy6SfAmbH0HdKH7L@cluster1.rizsk.mongodb.net/purim?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster1.rizsk.mongodb.net/purim?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => console.log('connection is open')).on('error', (error) => console.log(error));
+
+
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
