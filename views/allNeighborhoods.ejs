@@ -6,7 +6,7 @@
                 <% for(var i=0;i<neighborhoods.length;i++){ %>
                     <a href="#" class="col-md-auto m-1 col-4 neighborCard d-flex flex-column">
                         <b>
-                            <%=neighborhoods[i].name%>
+                            <%=neighborhoods[i].name.includes('קריית חתני') ? "פרס נובל" : neighborhoods[i].name%>
                         </b>
                         <p class="m-0">10 משתתפים</p>
                     </a>
