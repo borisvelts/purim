@@ -174,13 +174,21 @@ nav form input {
     text-align: center;
 }
 
-#participants .col-2:nth-child(even) {
-    background-color: #FFE5E5 !important;
+.neighborCard:nth-child(even) {
+    background-color: lightpink !important;
 }
 
-#participants .col-2:nth-child(odd) {
+.neighborCard:nth-child(odd) {
     background-color: #0090FF;
-    /* margin: 0 10px; */
+    color: white;
+}
+
+.neighborCard:nth-child(odd):hover {
+    color: lightgray;
+}
+
+.neighborCard:nth-child(even):hover{
+    /* color: black ; */
 }
 
 #participants .card {
