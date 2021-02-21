@@ -99,12 +99,12 @@ router.get('/end', (req, res) => {
     return res.render('shani/end')
 })
 
-router.get('/AliceCode', async (req, res) => {
-    var neighborhoods= await Neighborhood.find()
-    res.locals.neighborhoods = neighborhoods
+// router.get('/', async (req, res) => {
+//     var neighborhoods= await Neighborhood.find()
+//     res.locals.neighborhoods = neighborhoods
 
-    return res.render('index')
-})
+//     return res.render('index')
+// })
 
 
 router.get('/sync', (req, res) => res.render('sync'))
