@@ -1,11 +1,11 @@
-<section id="topLiked" class="py-4" style="position: relative;">
+<section id="topLiked" class="py-5" style="position: relative;">
   <div class="container">
     <h1 id="title">התמונות האהובות ביותר</h1>
     <div class="row mt-4" style="flex-wrap: nowrap;">
       <% for(let i of topAnimals.slice().splice(0,3)){ %>
         <div class="col-10 col-md-4 my-4">
           <div class="card">
-            <img src="<%=i.picture.secure_url%>" class="card-img-top1" alt="Costume">
+            <img src="<%=i.picture.secure_url%>" class="card-img-top1" alt="Costume" onclick="openImage(this)">
             <div class="card-body">
               <div class="container">
                 <div class="row justify-content-between align-items-center">
@@ -35,7 +35,7 @@
       <% for(let i of topAnimals.slice().splice(3,7)){ %>
         <div class="col-md-3 col-8 my-3">
           <div class="card">
-            <img src="<%=i.picture.secure_url%>" class="card-img-top1" alt="Costume">
+            <img src="<%=i.picture.secure_url%>" class="card-img-top1" alt="Costume" onclick="openImage(this)">
             <div class="card-body">
               <div class="container">
                 <div class="row justify-content-between align-items-center">

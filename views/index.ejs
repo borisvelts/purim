@@ -17,11 +17,24 @@
     <link href="assets/css/alisa.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/eden_style.css">
+    <link rel="stylesheet" href="assets/css/image_modal.css">
 </head>
 
 
 
 <body>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
     <%- include('header') %>
         <!-- <header class="container">
             <div class="row justify-content-around align-content-center">
@@ -43,18 +56,26 @@
 
                     <section id="amutot" class="py-5">
                         <div class="container">
-                            <div class="row">
-                                <div class="col-md-6 d-flex justify-content-center">
-                                    <img src="assets/images/sherut.png" width="50%" alt="">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4 col-6">
+                                    <a class=" d-flex justify-content-center" target="_blank"
+                                        href="https://www.rishonlezion.muni.il/Residents/Environment/Animals/Pages/default.aspx">
+                                        <img src="assets/images/sherut.png" width="60%" alt="">
+                                    </a>
                                 </div>
-                                <div class="col-md-6 d-flex justify-content-center">
-                                    <img src="assets/images/rishon_hayot.jpeg" alt="" width="50%">
+                                <div class="col-md-4 col-6">
+                                    <a class=" d-flex justify-content-center" href="https://www.rla.org.il/"
+                                        target="_blank">
+                                        <img src="assets/images/rishon_hayot.jpeg" alt="" width="60%">
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </section>
 
                     <%- include('footer')%>
+
+
 
                         <div class="modal fade" id="uploadModal">
                             <div class="modal-dialog modal-md">
@@ -132,6 +153,10 @@
                                                             <label for="formFile" class="form-label">*בחרו תמונה</label>
                                                             <input class="form-control" name="image" type="file"
                                                                 id="formFile">
+                                                            <div id="emailHelp" class="form-text">
+                                                                אנו אוהבים ומכבדים בעלי חיים. בבקשה העלו תמונות המכבדות
+                                                                אותם. תמונות עם תוכן פוגעני לא יעלו לאתר.
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-12 mb-3">
@@ -165,6 +190,7 @@
                             crossorigin="anonymous"></script>
                         <script src="../assets/js/jquery.min.js"></script>
                         <script src="assets/js/index.js"></script>
+                        <script src="assets/js/image_modal.js"></script>
 
 </body>
 

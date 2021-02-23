@@ -38,3 +38,12 @@ function adjustLikes() {
         }
     })
 }
+
+function openNeighborhoods(elem) {
+    document.querySelector('#allNeighborhoods').classList.toggle('d-none')
+    console.log(this)
+    if (elem.innerHTML == 'השכונות שלנו <i class="bi bi-chevron-down"></i>')
+        elem.innerHTML = 'השכונות שלנו <i class="bi bi-chevron-up"></i>'
+    else
+        elem.innerHTML = 'השכונות שלנו <i class="bi bi-chevron-down"></i>'
+}

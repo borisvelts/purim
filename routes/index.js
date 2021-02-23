@@ -58,7 +58,7 @@ router.get('/reg', async (req, res) => {
 })
 
 router.get('/animals', async (req, res) => {
-    var animals = await Animal.find({ "status": "APPROVED" }).populate('picture')
+    var animals = await Animal.find({ "status": "APPROVED" }).populate('picture').populate('neighborhood')
     var chunk = chunkArray(animals, 4)
     res.locals.animals = chunk
     res.render('animals')
@@ -93,7 +93,13 @@ router.delete('/likes', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-    res.locals.neighborhoods = await Neighborhood.find();
+    var neighborhoods = await Neighborhood.find().populate('animals').sort({'animals.length':'-1'});
+    neighborhoods.forEach((e, i) => {
+
+        neighborhoods[i].animals = neighborhoods[i].animals.filter(e => e.status == 'APPROVED')
+    })
+    // neighborhoods.animals = neighborhoods.animals.filter(e => e.status == 'APPROVED')
+    res.locals.neighborhoods = neighborhoods;
     res.locals.topAnimals = await Animal.find({ "status": "APPROVED" }).limit(7).sort({ 'likes': '-1' }).populate('picture').populate('neighborhood')
     return res.render('index')
 })

@@ -1,10 +1,10 @@
 <section id="neighborhoods" class="container my-5">
-    <h3>השכונות שלנו</h3>
-    <div class="container">
+    <h3 class="mb-md-5" onclick="openNeighborhoods(this)" style="text-align: center;cursor:pointer">השכונות שלנו <i class="bi bi-chevron-down"></i></h3>
+    <div class="container d-none" id="allNeighborhoods">
         <div class="row d-flex justify-content-around">
             <div class="row">
                 <% for(var i=0;i<neighborhoods.length;i++){ %>
-                    <a href="/neighborhoods?name=<%=neighborhoods[i].name%>" class="col-md-auto col-4 m-md-1 neighborCard d-flex flex-column">
+                    <a href="<%=neighborhoods[i].animals.length > 0 ? '/neighborhoods?name=' + neighborhoods[i].name : '#'%>  " class="col-md-auto col-4 m-md-1 neighborCard d-flex flex-column">
                         <b>
                             <%=neighborhoods[i].name.includes('קריית חתני') ? "פרס נובל" : neighborhoods[i].name%>
                         </b>
@@ -16,3 +16,4 @@
 
     </div>
 </section>
+

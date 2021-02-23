@@ -177,10 +177,12 @@ nav form input {
 
 .neighborCard:nth-child(even) {
     background-color: lightpink !important;
+    border: 5px solid white;
 }
 
 .neighborCard:nth-child(odd) {
     background-color: #0090FF;
+    border: 5px solid white;
     color: white;
 }
 
@@ -231,8 +233,9 @@ header .row {
 #allAnimalsLink {
     color: gray;
     position: absolute;
-    left: 7%;
-    bottom: 1%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 20px;
     text-decoration: none;
     background-color: white;
     font-size: 1.3rem;
@@ -300,10 +303,10 @@ header .row {
     .bottom_left {
         left: unset !important;
     }
-    .card-body{
+    .card-body {
         padding: 0 !important;
     }
-    .pictures_column img{
+    .pictures_column img {
         margin-top: unset !important;
     }
 }
@@ -315,4 +318,8 @@ header .row {
         flex: 100%;
         max-width: 100%;
     }
+}
+
+#allNeighborhoods {
+    transition: 0.3s all ease-in-out;
 }
