@@ -66,12 +66,11 @@ router.get('/animals', async (req, res) => {
 
 router.get('/neighborhoods', async (req, res) => {
     var animals = await Animal.find({ "status": "APPROVED" }).populate('picture').populate('neighborhood')
-    console.log(animals.length, '1')
     animals = animals.filter((e) => e.neighborhood.name == req.query.name)
-    console.log(animals.length, '2')
     var chunk = chunkArray(animals, 4)
     res.locals.animals = chunk
-    res.render('animals')
+    res.locals.neighborhood = req.query.name
+    res.render('neighborhoods')
 })
 
 router.post('/likes', async (req, res) => {
