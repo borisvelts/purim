@@ -2,17 +2,30 @@ const mongoose = require("mongoose");
 
 const AnimalSchema = new mongoose.Schema(
     {
-        name: String,
-        type: String, // Dog, Cat, Hamster....
+        animalName: String,
+        animalType: String, // Dog, Cat, Hamster....
+        firstName: String,
+        lastName: String,
+        cellphone: String,
+        address: String,
+        approveJoin: Boolean,
+        status: {
+            type: String,
+            enum: ['APPROVED', 'WAITING'],
+            default: 'WAITING'
+        },
         neighborhood: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Neighborhood"
         },
-        Picture: {  
+        picture: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Picture"
         },
-        likes: Number
+        likes: {
+            type: Number,
+            default: 0
+        }
     }
 );
 

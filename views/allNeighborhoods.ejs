@@ -4,11 +4,11 @@
         <div class="row d-flex justify-content-around">
             <div class="row">
                 <% for(var i=0;i<neighborhoods.length;i++){ %>
-                    <a href="#" class="col-md-auto m-1 col-4 neighborCard d-flex flex-column">
+                    <a href="/neighborhoods?name=<%=neighborhoods[i].name%>" class="col-md-auto col-4 m-md-1 neighborCard d-flex flex-column">
                         <b>
                             <%=neighborhoods[i].name.includes('קריית חתני') ? "פרס נובל" : neighborhoods[i].name%>
                         </b>
-                        <p class="m-0">10 משתתפים</p>
+                        <p class="m-0"><%=neighborhoods[i].animals.length%> משתתפים</p>
                     </a>
                     <%}%>
             </div>

@@ -1,0 +1,52 @@
+<div class="row" dir="rtl">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title float-right">לקוחות</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive" style="text-align: right;max-height: 65vh;overflow: scroll;">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>
+                <input type="checkbox" id="check_head">
+              </th>
+              <th>
+                אימייל
+              </th>
+              <th>
+                פעולות
+              </th>
+              <!-- <th class="text-right">
+                Salary
+              </th> -->
+            </thead>
+            <tbody>
+              <%cust.forEach((customer) => { %>
+              <tr>
+                <td><input class="check_user" type="checkbox"></td>
+                <td><%=customer.email%></td>
+                <td>
+                  <i class="fas fa-envelope"></i>
+                </td>
+                <!-- <td class="text-right">
+                  $36,738
+                </td> -->
+              </tr>
+              <% })%>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('#check_head').click(() => {
+    $('.check_user').each((i,e) => {
+      $(e).prop('checked',$('#check_head').prop('checked'))
+    })
+  })
+</script>

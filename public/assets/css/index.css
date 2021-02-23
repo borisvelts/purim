@@ -5,6 +5,7 @@ html, body {
     position: relative;
     font-family: "Rubik", "Arial";
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 /* 
@@ -174,7 +175,6 @@ nav form input {
     text-align: center;
 }
 
-
 .neighborCard:nth-child(even) {
     background-color: lightpink !important;
 }
@@ -224,6 +224,28 @@ header .row {
     overflow-x: hidden;
 }
 
+.profile {
+    box-shadow: 1px 3px 5px 0 rgba(0, 0, 0, 0.19);
+}
+
+#allAnimalsLink {
+    color: gray;
+    position: absolute;
+    left: 7%;
+    bottom: 1%;
+    text-decoration: none;
+    background-color: white;
+    font-size: 1.3rem;
+    padding: 3px 7px;
+    border-radius: 5px;
+    box-shadow: 1px 3px 5px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.2s color ease-in-out;
+}
+
+#allAnimalsLink:hover {
+    color: rgba(30, 30, 30, 1);
+}
+
 @media screen and (max-width:767px) {
     .navImage {
         height: 25px;
@@ -231,7 +253,66 @@ header .row {
     .biggerPhoto {
         height: 50px;
     }
-    #topLiked .row{
+    #topLiked .row {
         overflow-x: scroll;
+    }
+}
+
+/* PICTURES */
+
+.pictures_row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 9px;
+}
+
+/* Create four equal columns that sits next to each other */
+
+.pictures_column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+    margin-bottom: 10vh;
+}
+
+.pictures_column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.fullPhoto .adjust {
+    height: 55vh !important;
+    object-fit: cover;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+
+@media screen and (max-width: 800px) {
+    .fullPhoto {
+        width: 90% !important;
+    }
+    .pictures_column {
+        flex: 50%;
+        max-width: 50%;
+        margin-bottom: 30px !important;
+    }
+    .bottom_left {
+        left: unset !important;
+    }
+    .card-body{
+        padding: 0 !important;
+    }
+    .pictures_column img{
+        margin-top: unset !important;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+    .column {
+        flex: 100%;
+        max-width: 100%;
     }
 }

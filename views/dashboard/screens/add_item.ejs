@@ -1,0 +1,383 @@
+<style>
+    input {
+        direction: rtl;
+    }
+</style>
+<!-- <input type="text" id="color_picker" style="position: absolute;left: 5vw;bottom:15vw;z-index: 99999;"  value="#ff0"></input> -->
+<div class="content" style="text-align: right;" dir="rtl">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-user">
+                <div class="card-header">
+                    <h5 class="card-title">הוספת מוצר</h5>
+                </div>
+                <div class="card-body">
+                    <!-- <form> -->
+                    <div class="row justify-content-center">
+                        <div class="col-md-5 pr-1">
+                            <div class="form-group">
+                                <label>שם\כותרת המוצר</label>
+                                <input id="name" type="text" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-md-2 px-1">
+                            <div class="form-group">
+                                <label>מחיר</label>
+                                <input id="price" type="number" class="form-control" placeholder="מחיר הפריט">
+                            </div>
+                        </div>
+                        <div class="col-md-2 pl-1">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">מחיר מבצע</label>
+                                <input id="salePrice" type="number" class="form-control" placeholder="ריק אם אין">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-3 pr-1 align-items-center d-flex justify-content-center">
+                            <div class="form-check" dir="rtl">
+                                <label class="form-check-label">
+                                    <input id="onSale" class="form-check-input" type="checkbox" value="">
+                                    המוצר במבצע?
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-1">
+                            <div class="form-group">
+                                <label>אם כן, עד מתי?</label>
+                                <input id="saleUntil" type="date" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-1">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">קטגוריה</label>
+                                <select class="form-control" id="category_select">
+                                    <option value="">בחירת קטגוריה</option>
+                                    <% categories.forEach((cat) => { %>
+                                    <option value="<%=cat.name%>"><%=cat.name%></option>
+                                    <%})%>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-1 d-flex align-items-center">
+                            <!-- <button class="fa fa-plus" style="height:25px"></button> -->
+                            <a href="#" class="fa fa-plus" onclick="addCategory()"></a>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-4 pt-md-3">
+                            <div class="custom-file">
+                                <input type="file" name="image" multiple class="custom-file-input"
+                                    onchange="changeLabel(this)" id="customFile">
+                                <label class="custom-file-label" id="add_picture_lable" lang="he" for="customFile">הוספת
+                                    תמונות</label>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" id="upload_progress" role="progressbar" style="width: 0%"
+                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>מידות, מופרד בפסיק ( , )</label>
+                                <input id="sizes" type="text" class="form-control" placeholder="s,m,xl">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>מלאי</label>
+                                <input id="stock" type="number" class="form-control" value="0" placeholder="מלאי">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="picture_holder"></div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>פירוט מוצר</label>
+                                <textarea id="description" class="form-control textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <span>צבעים <a href="#" class="fa fa-plus" onclick="addColor()"></a></span>
+                            <div class="row" id="color_row">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-11">
+                            <div class="form-group">
+                                <label>מידע נוסף</label>
+                                <textarea id="information" class="form-control textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="update ml-auto mr-auto">
+                            <button id="add_item_btn" type="submit" class="btn btn-primary btn-round">הוספת
+                                מוצר</button>
+                        </div>
+                    </div>
+                    <!-- </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .custom-file-label {
+        direction: rtl;
+        padding-right: 80px;
+    }
+</style>
+
+<script>
+    function changeLabel() {
+        var label = $('#add_picture_lable')
+        label.text(' ')
+        var uploadfiles = $("input[name=image]")[0].files;
+        for (var i = 0; i < uploadfiles.length; i++) {
+            label.text(label.text() + ' , ' + uploadfiles[i].name)
+        }
+    }
+
+    async function addColor() {
+        var colors = JSON.parse('<%- JSON.stringify(colors) %>');
+        var html = '';
+        colors.forEach((color) => {
+            html += '<option value="' + color.value + '">' + color.name + '</option>'
+        })
+        const { value: formValues } = await Swal.fire({
+            title: 'בחירת צבע',
+            html:
+                '<input id="swal-input1" placeholder=" שם צבע במידה וחדש" class="swal1-input mb-3 form-control"><br>' +
+                '<select class="form-control" dir="rtl" id="color_select">' +
+                '<option value="">צבע חדש</option>' +
+                html +
+                '</select>' +
+                '<input id="swal-input2" class="swal2-input">',
+            focusConfirm: false,
+            onBeforeOpen: () => {
+                var picker = new CP(document.getElementById('swal-input2'));
+                return picker.on('change', onChangePicker);
+            },
+            preConfirm: () => {
+                if ($('#swal-input1').val() == '' && !document.getElementById('color_select').value) {
+                    return Swal.fire({
+                        title: 'לא נבחר שם לצבע',
+                        icon: 'error',
+                        confirmButtonText: 'סגור',
+                        timerProgressBar: true,
+                    })
+                }
+                if (document.getElementById('color_select').value) {
+                    return [{
+                        'name': $('#color_select option:selected').html(),
+                        'value': document.getElementById('color_select').value,
+                        'isSelected': true
+                    }]
+                }
+                return [
+                    {
+                        'name': document.getElementById('swal-input1').value,
+                        'value': document.getElementById('swal-input2').value,
+                        'isSelected': false
+                    }
+
+                ]
+            }
+        })
+        if (formValues) {
+            $('#color_row').append(
+                $('<div>').addClass('col-md-2').addClass('m-1').css({
+                    'background-color': formValues[0].value,
+                    'border-radius': '50%',
+                    'height': '30px',
+                    'padding': '5px',
+                    'box-shadow': '1px 3px 5px 0 rgba(0,0,0,0.19)'
+                }).attr('data-name', formValues[0].name).attr('data-value', formValues[0].value).append(
+                    $('<i>').addClass('fa fa-close').addClass('d-flex').addClass('p-1').addClass('justify-content-center').css({
+                        'font-size': '15px',
+                        'cursor': 'pointer'
+                    }).click(() => {
+                        $(event.target).parent().remove()
+                    })
+                )
+            )
+        }
+    }
+
+    async function addCategory(parent) {
+        const { value: ipAddress } = await Swal.fire({
+            title: 'הוספת קטגוריה',
+            input: 'text',
+            // inputValue: inputValue,
+            showCancelButton: true,
+            inputValidator: (value) => {
+                if (!value) {
+                    return 'נא למלא שדה!'
+                }
+            }
+        })
+
+        if (ipAddress) {
+            $.ajax({
+                type: "POST",
+                url: '/dashboard/category?name=' + ipAddress,
+                success: function (msg) {
+                    $('#category_select').append("<option value='" + msg + "''>" + msg + "</option>").select()
+                    Swal.fire({
+                        title: 'קטגוריה הוספה בהצלחה',
+                        icon: 'success',
+                        // confirmButtonText: 'Cool',
+                        timer: 1500,
+                        timerProgressBar: true,
+                        onBeforeOpen: () => {
+                            Swal.showLoading()
+                            timerInterval = setInterval(() => {
+                                const content = Swal.getContent()
+                                if (content) {
+                                    const b = content.querySelector('b')
+                                    if (b) {
+                                        b.textContent = Swal.getTimerLeft()
+                                    }
+                                }
+                            }, 100)
+                        },
+                        onClose: () => {
+                            clearInterval(timerInterval)
+                        }
+                    })
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    Swal.fire({
+                        title: 'קרתה תקלה בהוספת קטגוריה ',
+                        icon: 'error',
+                        confirmButtonText: 'סגור',
+                        timerProgressBar: true,
+                    })
+                }
+            });
+        }
+    }
+
+    $('#add_item_btn').click(() => {
+        var formData = new FormData();
+        var name = document.getElementById("name").value
+        var price = document.getElementById("price").value
+        var salePrice = document.getElementById("salePrice").value
+        // var salePrice = $('#salePrice').val()
+        var saleUntil = document.getElementById("saleUntil").value
+        var description = document.getElementById("description").value
+        var information = document.getElementById("information").value
+        var category = document.getElementById("category_select").value
+        var sizes = document.getElementById("sizes").value
+        var stock = document.getElementById("stock").value
+        var colors = [];
+        $('#color_row').children().each((i, e) => {
+            colors.push({
+                'name': $(e).attr('data-name'),
+                'value': $(e).attr('data-value'),
+            })
+        })
+        // return;
+        var onSale = false;
+        if ($('#onSale:checked').length > 0)
+            onSale = true;
+
+        if (name == "" || price == "" || description == "" || information == "" || category == "") {
+            name == "" ? $('#name').parent().addClass('has-danger') : null;
+            price == "" ? $('#price').parent().addClass('has-danger') : null;
+            description == "" ? $('#description').parent().addClass('has-danger') : null;
+            information == "" ? $('#information').parent().addClass('has-danger') : null;
+            category == "" ? $('#category_select').parent().addClass('has-danger') : null;
+            return null;
+        }
+        else {
+            $('.loading').css('display', 'block')
+            $('#add_item_btn').prop('disabled', true)
+            formData.append('name', name)
+            formData.append('price', price)
+            formData.append('salePrice', salePrice)
+            formData.append('saleUntil', saleUntil)
+            formData.append('description', description)
+            formData.append('information', information)
+            formData.append('category', category)
+            formData.append('sizes', sizes)
+            formData.append('stock', stock)
+            formData.append('colors', JSON.stringify(colors))
+            var uploadfiles = $("input[name=image]")[0].files;
+            for (var i = 0; i < uploadfiles.length; i++) {
+                formData.append("image", uploadfiles[i]);
+            }
+            xhr = new XMLHttpRequest();
+            xhr.upload.addEventListener("progress", function (evt) {
+                if (evt.lengthComputable) {
+                    var percentComplete = (evt.loaded / evt.total) * 100;
+                    $('#upload_progress').css('width', percentComplete + '%')
+                    $('#upload_progress').html(percentComplete + '%')
+                }
+            }, false);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    $('.loading').css('display', 'none')
+                    $('#add_item_btn').prop('disabled', false)
+                    if (xhr.status === 200) {
+                        Swal.fire({
+                            title: 'מוצר הוסף בהצלחה',
+                            icon: 'success',
+                            // confirmButtonText: 'Cool',
+                            timer: 1000,
+                            timerProgressBar: true,
+                            onBeforeOpen: () => {
+                                Swal.showLoading()
+                                timerInterval = setInterval(() => {
+                                    const content = Swal.getContent()
+                                    if (content) {
+                                        const b = content.querySelector('b')
+                                        if (b) {
+                                            b.textContent = Swal.getTimerLeft()
+                                        }
+                                    }
+                                }, 100)
+                            },
+                            onClose: () => {
+                                clearInterval(timerInterval)
+                            }
+                        })
+                    } else {
+                        Swal.fire({
+                            title: 'קרתה תקלה בהעלאת מוצר',
+                            text: xhr.response,
+                            icon: 'error',
+                            confirmButtonText: 'סגור',
+                            timerProgressBar: true,
+                        })
+                    }
+                }
+            }
+            xhr.open("POST", "/dashboard/item", true);
+            xhr.send(formData);
+
+        }
+    })
+
+
+
+    function onChangePicker(r, g, b, a) {
+        this.source.value = this.color(r, g, b, a);
+        this.source.backgroundColor = 'rgab(r, g, b, a)';
+        // document.body.style.backgroundColor = this.color(r, g, b, a);
+    }
+    // picker.on('change', onChangePicker);
+</script>
+
+<style>
+    .custom-file-input~.custom-file-label::after {
+        content: "העלאה" !important;
+    }
+</style>

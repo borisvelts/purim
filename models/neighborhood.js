@@ -11,11 +11,11 @@ cloudinary.config({
 
 const NeighborhoodSchema = new mongoose.Schema(
     {
-        name: String,   
-        families: [
+        name: String,
+        animals: [
             {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: "Family"
+                ref: "Animal"
             },
         ],
         picture: {

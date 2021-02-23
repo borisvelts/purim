@@ -1,94 +1,65 @@
-<section id="topLiked" class="py-4">
+<section id="topLiked" class="py-4" style="position: relative;">
   <div class="container">
     <h1 id="title">החיות האהובות ביותר</h1>
     <div class="row mt-4" style="flex-wrap: nowrap;">
-      <div class="col-10 col-md-4">
-        <div class="card">
-          <img src="https://i.pinimg.com/564x/2d/bb/56/2dbb562f5f44674f58054b162c2e0451.jpg" class="card-img-top1"
-            alt="Costume">
-          <div class="card-body">
-            <h4>
-              <p>&hearts; 234</h5>
-              <p>
-            </h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-10 col-md-4">
-        <div class="card">
-          <img src="https://i.pinimg.com/564x/2d/bb/56/2dbb562f5f44674f58054b162c2e0451.jpg" class="card-img-top1"
-            alt="Costume">
-          <div class="card-body">
-            <h4>
-              <p>&hearts; 234</h5>
-              <p>
-            </h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-10 col-md-4">
-        <div class="card">
-          <img src="https://i.pinimg.com/564x/2d/bb/56/2dbb562f5f44674f58054b162c2e0451.jpg" class="card-img-top1"
-            alt="Costume">
-          <div class="card-body">
-            <h4>
-              <p>&hearts; 234</h5>
-              <p>
-            </h4>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row mt-md-4 my-4" style="flex-wrap: nowrap;">
-      <div class="col-md-3 col-8">
-        <div class="card">
-          <img src="https://i.pinimg.com/564x/94/cc/77/94cc7734059a1d0a19aba928a4a061c7.jpg" class="card-img-top"
-            alt="Costume">
-          <div class="card-body">
-            <h4>
-              <p>&hearts; 198</h5>
-              <p>
-            </h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-8">
-        <div class="card">
-          <img src="https://i.pinimg.com/564x/94/cc/77/94cc7734059a1d0a19aba928a4a061c7.jpg" class="card-img-top"
-            alt="Costume">
-          <div class="card-body">
-            <h4>
-              <p>&hearts; 198</h5>
-              <p>
-            </h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-8">
-        <div class="card">
-          <img src="https://i.pinimg.com/564x/94/cc/77/94cc7734059a1d0a19aba928a4a061c7.jpg" class="card-img-top"
-            alt="Costume">
-          <div class="card-body">
-            <h4>
-              <p>&hearts; 198</h5>
-              <p>
-            </h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-8">
-        <div class="card">
-          <img src="https://i.pinimg.com/564x/94/cc/77/94cc7734059a1d0a19aba928a4a061c7.jpg" class="card-img-top"
-            alt="Costume">
-          <div class="card-body">
-            <h4>
-              <p>&hearts; 198</h5>
-              <p>
-            </h4>
-          </div>
-        </div>
-      </div>
+      <% for(let i of topAnimals.slice().splice(0,3)){ %>
+        <div class="col-10 col-md-4 my-4">
+          <div class="card">
+            <img src="<%=i.picture.secure_url%>" class="card-img-top1" alt="Costume">
+            <div class="card-body">
+              <div class="container">
+                <div class="row justify-content-between align-items-center">
+                  <div class="col-auto">
+                    <p class="mb-0">
+                      <%=i.animalName + ', ' + i.neighborhood.name%>
+                    </p>
+                  </div>
+                  <div class="col-auto">
+                    <p class="mb-0" style="font-size: 1.2rem;">
+                      <span class="liked">
+                        <%=i.likes%>
+                      </span> <i class="bi bi-heart-fill ms-2" onclick="likeImage(this)" data-id="<%=i._id%>"
+                        style="color: lightpink;cursor: pointer;font-size: 1.4rem;"></i>
+                    </p>
+                  </div>
+                </div>
+              </div>
 
+            </div>
+          </div>
+        </div>
+        <%}%>
+    </div>
+
+    <div class="row mt-md-4 my-4" style="flex-wrap: nowrap;">
+      <% for(let i of topAnimals.slice().splice(3,7)){ %>
+        <div class="col-md-3 col-8 my-3">
+          <div class="card">
+            <img src="<%=i.picture.secure_url%>" class="card-img-top1" alt="Costume">
+            <div class="card-body">
+              <div class="container">
+                <div class="row justify-content-between align-items-center">
+                  <div class="col-auto">
+                    <p class="mb-0">
+                      <%=i.animalName + ', ' + i.neighborhood.name%>
+                    </p>
+                  </div>
+                  <div class="col-auto">
+                    <p class="mb-0" style="font-size: 1.2rem;">
+                      <span class="liked">
+                        <%=i.likes%>
+                      </span> <i class="bi bi-heart-fill ms-2" onclick="likeImage(this)" data-id="<%=i._id%>"
+                        style="color: lightpink;cursor: pointer;font-size: 1.4rem;"></i>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%}%>
     </div>
   </div>
+
+  <a href="/animals" id="allAnimalsLink">לכל חיות העיר</a>
 </section>
