@@ -44,7 +44,12 @@ const storage = cloudinaryStorage({
     }
 });
 
-const parser = multer({ storage: storage });
+const parser = multer({
+    storage: storage, onError: function (err, next) {
+        console.log('error', err);
+        next(err);
+    }
+});
 //#endregion CONFIG
 
 router.get('/reg', async (req, res) => {
@@ -61,9 +66,9 @@ router.get('/animals', async (req, res) => {
 
 router.get('/neighborhoods', async (req, res) => {
     var animals = await Animal.find({ "status": "APPROVED" }).populate('picture').populate('neighborhood')
-    console.log(animals.length,'1')
+    console.log(animals.length, '1')
     animals = animals.filter((e) => e.neighborhood.name == req.query.name)
-    console.log(animals.length,'2')
+    console.log(animals.length, '2')
     var chunk = chunkArray(animals, 4)
     res.locals.animals = chunk
     res.render('animals')

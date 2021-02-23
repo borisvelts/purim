@@ -87,32 +87,35 @@ router.get('/customers-screen', async (req, res) => {
 
 //#region PICTURES
 router.delete('/picture', async (req, res) => {
-    Picture.findByIdAndRemove(req.body.id, (err, doc) => {
+    console.log(req.body)
+    Animal.findByIdAndRemove(req.body.id, (err, doc) => {
         if (err) {
-            console.log(err)
+            console.log(err, 'err')
             return res.status(500).end()
         }
-        cloudinary.uploader.destroy(doc.public_id)
         return res.status(200).end()
-    })
-    Product.findById(req.query.product_id, (err, doc) => {
-        doc.pictures.splice(doc.pictures.indexOf(req.body.id), 1)
-        doc.save()
     })
 })
 
 router.patch('/picture', async (req, res) => {
+    console.log(req.body)
     try {
         if (req.body.method == "approve") {
             for (var i of req.body.images) {
                 var animal = await Animal.findById(i._id)
                 animal.status = "APPROVED";
                 animal.save();
-
             }
             return res.status(200).send({ "message": "success" })
         } else {
-            return res.status(500).send({ "message": "error, no command" })
+
+            Animal.findByIdAndRemove(req.body.id, (err, doc) => {
+                if (err) {
+                    console.log(err, 'err')
+                    return res.status(500).end()
+                }
+                return res.status(200).end()
+            })
         }
     } catch (e) {
         console.log(e)

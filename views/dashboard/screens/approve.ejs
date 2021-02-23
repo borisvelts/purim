@@ -7,11 +7,11 @@
       <div class="card-body">
         <div class="row">
           <% for(var f of children){ %>
-          <div class="col-2 my-3" style="position: relative;">
-            <img src="<%=f.picture.secure_url%>" alt="" style="width: 100%;height: 100%;">
-            <span class="delete" data-id="<%=f._id%>"><i class="fa fa-times"></i></span>
-          </div>
-          <%}%>
+            <div class="col-2 my-3" style="position: relative;">
+              <img src="<%=f.picture.secure_url%>" alt="" style="width: 100%;height: 100%;">
+              <span class="delete" data-id="<%=f._id%>"><i class="fa fa-times"></i></span>
+            </div>
+            <%}%>
         </div>
       </div>
       <div class="card-footer">
@@ -22,7 +22,7 @@
 </div>
 
 <style>
-  .delete{
+  .delete {
     position: absolute;
     top: 0;
     left: 0;
@@ -32,7 +32,7 @@
 
 <script>
   var children = <%- JSON.stringify(children) %>;
-  
+
   console.log(children)
   $('.delete').click(function (e) {
     var id = this.getAttribute("data-id");
@@ -42,12 +42,13 @@
     $.ajax({
       url: '/dashboard/picture',
       method: 'DELETE',
-      data: { id: id },
+      data: { id: id, method: 'delete' },
       success: (res) => {
         console.log("deleted")
       },
       error: (res) => {
         alert(res)
+        console.log(res)
       }
     })
 
