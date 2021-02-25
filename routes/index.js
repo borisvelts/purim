@@ -60,7 +60,8 @@ router.get('/reg', async (req, res) => {
 router.get('/animals', async (req, res) => {
     var animals = await Animal.find({ "status": "APPROVED" }).populate('picture').populate('neighborhood')
     var chunk = chunkArray(animals, 4)
-    res.locals.animals = chunk
+    res.locals.animals = chunk;
+    res.locals.neighborhoods = await Neighborhood.find();
     res.render('animals')
 })
 
@@ -70,6 +71,7 @@ router.get('/neighborhoods', async (req, res) => {
     var chunk = chunkArray(animals, 4)
     res.locals.animals = chunk
     res.locals.neighborhood = req.query.name
+    res.locals.neighborhoods = await Neighborhood.find();
     res.render('neighborhoods')
 })
 
@@ -92,7 +94,7 @@ router.delete('/likes', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-    var neighborhoods = await Neighborhood.find().populate('animals').sort({'animals.length':'-1'});
+    var neighborhoods = await Neighborhood.find().populate('animals').sort({ 'animals.length': '-1' });
     neighborhoods.forEach((e, i) => {
 
         neighborhoods[i].animals = neighborhoods[i].animals.filter(e => e.status == 'APPROVED')
@@ -136,7 +138,7 @@ router.post('/upload', parser.single('image'), async (req, res) => {
     var animal = await Animal.create(req.body);
     neighborhood.animals.push(animal._id)
     neighborhood.save()
-    return res.redirect('/')
+    return res.redirect('/?status=uploaded')
 })
 
 

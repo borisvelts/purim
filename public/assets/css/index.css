@@ -177,13 +177,22 @@ nav form input {
 
 .neighborCard:nth-child(even) {
     background-color: lightpink !important;
-    border: 5px solid white;
+    border: 2px solid white;
 }
 
 .neighborCard:nth-child(odd) {
     background-color: #0090FF;
-    border: 5px solid white;
+    border: 2px solid white;
     color: white;
+}
+
+@media screen and (max-width:767px) {
+    .neighborCard:nth-child(even) {
+        border: 5px solid white;
+    }
+    .neighborCard:nth-child(odd) {
+        border: 5px solid white;
+    }
 }
 
 .neighborCard:nth-child(odd):hover {
