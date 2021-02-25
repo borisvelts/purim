@@ -58,7 +58,7 @@ router.get('/reg', async (req, res) => {
 })
 
 router.get('/animals', async (req, res) => {
-    var animals = await Animal.find({ "status": "APPROVED" }).populate('picture').populate('neighborhood')
+    var animals = await Animal.find({ "status": "APPROVED" }).populate('picture').populate('neighborhood').sort({ 'likes': '1' });
     var chunk = chunkArray(animals, 4)
     res.locals.animals = chunk;
     res.locals.neighborhoods = await Neighborhood.find();
